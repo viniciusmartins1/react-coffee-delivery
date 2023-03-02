@@ -110,6 +110,81 @@ export function Home() {
                 </span>
               </CoffeeItemBuy>
             </CoffeeItemContent>
+            <CoffeeItemContent>
+              <img src={coffeeItemImg} alt="" />
+              <CoffeeItemTags>
+                <span>tradicional</span>
+                <span>com leite</span>
+              </CoffeeItemTags>
+              <CoffeeItemTitle>Expresso Tradicional</CoffeeItemTitle>
+              <CoffeeItemDescription>
+                O tradicional café feito com água quente e grãos moídos
+              </CoffeeItemDescription>
+              <CoffeeItemBuy>
+                <p>
+                  <span>R$</span> 9,90
+                </p>
+
+                <div>
+                  <Minus size={14} weight="bold" />
+                  <span>1</span>
+                  <Plus size={14} weight="bold" />
+                </div>
+                <span>
+                  <ShoppingCartSimple size={20} weight="fill" />
+                </span>
+              </CoffeeItemBuy>
+            </CoffeeItemContent>
+            <CoffeeItemContent>
+              <img src={coffeeItemImg} alt="" />
+              <CoffeeItemTags>
+                <span>tradicional</span>
+                <span>com leite</span>
+              </CoffeeItemTags>
+              <CoffeeItemTitle>Expresso Tradicional</CoffeeItemTitle>
+              <CoffeeItemDescription>
+                O tradicional café feito com água quente e grãos moídos
+              </CoffeeItemDescription>
+              <CoffeeItemBuy>
+                <p>
+                  <span>R$</span> 9,90
+                </p>
+
+                <div>
+                  <Minus size={14} weight="bold" />
+                  <span>1</span>
+                  <Plus size={14} weight="bold" />
+                </div>
+                <span>
+                  <ShoppingCartSimple size={20} weight="fill" />
+                </span>
+              </CoffeeItemBuy>
+            </CoffeeItemContent>
+            <CoffeeItemContent>
+              <img src={coffeeItemImg} alt="" />
+              <CoffeeItemTags>
+                <span>tradicional</span>
+                <span>com leite</span>
+              </CoffeeItemTags>
+              <CoffeeItemTitle>Expresso Tradicional</CoffeeItemTitle>
+              <CoffeeItemDescription>
+                O tradicional café feito com água quente e grãos moídos
+              </CoffeeItemDescription>
+              <CoffeeItemBuy>
+                <p>
+                  <span>R$</span> 9,90
+                </p>
+
+                <div>
+                  <Minus size={14} weight="bold" />
+                  <span>1</span>
+                  <Plus size={14} weight="bold" />
+                </div>
+                <span>
+                  <ShoppingCartSimple size={20} weight="fill" />
+                </span>
+              </CoffeeItemBuy>
+            </CoffeeItemContent>
           </CoffeeListContent>
         </MainContent>
       </HomeContainer>

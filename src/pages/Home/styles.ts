@@ -7,7 +7,7 @@ export const HomeBody = styled.div`
   background-size: contain;
 `;
 export const HomeContainer = styled.div`
-  max-width: 1220px;
+  max-width: 1120px;
   height: 100vh;
   margin: 0 auto;
 `;
