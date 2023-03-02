@@ -11,6 +11,7 @@ import {
 import logoImage from "../../assets/logo.png";
 import imgCoffee from "../../assets/img-coffee-home.png";
 import coffeeItemImg from "../../assets/coffee.png";
+import { dataCoffee } from "../../dataCoffee";
 
 import {
   HeaderContainer,
@@ -25,13 +26,9 @@ import {
   HomeBody,
   ContentCoffee,
   CoffeeListContent,
-  CoffeeItemContent,
-  CoffeeItemTags,
-  CoffeeItemTitle,
-  CoffeeItemDescription,
-  CoffeeItemBuy,
   TitleList,
 } from "./styles";
+import { CoffeeItemCard } from "./CoffeeItemCard";
 
 export function Home() {
   return (
@@ -85,106 +82,9 @@ export function Home() {
           <TitleList>Nossos cafés</TitleList>
 
           <CoffeeListContent>
-            <CoffeeItemContent>
-              <img src={coffeeItemImg} alt="" />
-              <CoffeeItemTags>
-                <span>tradicional</span>
-                <span>com leite</span>
-              </CoffeeItemTags>
-              <CoffeeItemTitle>Expresso Tradicional</CoffeeItemTitle>
-              <CoffeeItemDescription>
-                O tradicional café feito com água quente e grãos moídos
-              </CoffeeItemDescription>
-              <CoffeeItemBuy>
-                <p>
-                  <span>R$</span> 9,90
-                </p>
-
-                <div>
-                  <Minus size={14} weight="bold" />
-                  <span>1</span>
-                  <Plus size={14} weight="bold" />
-                </div>
-                <span>
-                  <ShoppingCartSimple size={20} weight="fill" />
-                </span>
-              </CoffeeItemBuy>
-            </CoffeeItemContent>
-            <CoffeeItemContent>
-              <img src={coffeeItemImg} alt="" />
-              <CoffeeItemTags>
-                <span>tradicional</span>
-                <span>com leite</span>
-              </CoffeeItemTags>
-              <CoffeeItemTitle>Expresso Tradicional</CoffeeItemTitle>
-              <CoffeeItemDescription>
-                O tradicional café feito com água quente e grãos moídos
-              </CoffeeItemDescription>
-              <CoffeeItemBuy>
-                <p>
-                  <span>R$</span> 9,90
-                </p>
-
-                <div>
-                  <Minus size={14} weight="bold" />
-                  <span>1</span>
-                  <Plus size={14} weight="bold" />
-                </div>
-                <span>
-                  <ShoppingCartSimple size={20} weight="fill" />
-                </span>
-              </CoffeeItemBuy>
-            </CoffeeItemContent>
-            <CoffeeItemContent>
-              <img src={coffeeItemImg} alt="" />
-              <CoffeeItemTags>
-                <span>tradicional</span>
-                <span>com leite</span>
-              </CoffeeItemTags>
-              <CoffeeItemTitle>Expresso Tradicional</CoffeeItemTitle>
-              <CoffeeItemDescription>
-                O tradicional café feito com água quente e grãos moídos
-              </CoffeeItemDescription>
-              <CoffeeItemBuy>
-                <p>
-                  <span>R$</span> 9,90
-                </p>
-
-                <div>
-                  <Minus size={14} weight="bold" />
-                  <span>1</span>
-                  <Plus size={14} weight="bold" />
-                </div>
-                <span>
-                  <ShoppingCartSimple size={20} weight="fill" />
-                </span>
-              </CoffeeItemBuy>
-            </CoffeeItemContent>
-            <CoffeeItemContent>
-              <img src={coffeeItemImg} alt="" />
-              <CoffeeItemTags>
-                <span>tradicional</span>
-                <span>com leite</span>
-              </CoffeeItemTags>
-              <CoffeeItemTitle>Expresso Tradicional</CoffeeItemTitle>
-              <CoffeeItemDescription>
-                O tradicional café feito com água quente e grãos moídos
-              </CoffeeItemDescription>
-              <CoffeeItemBuy>
-                <p>
-                  <span>R$</span> 9,90
-                </p>
-
-                <div>
-                  <Minus size={14} weight="bold" />
-                  <span>1</span>
-                  <Plus size={14} weight="bold" />
-                </div>
-                <span>
-                  <ShoppingCartSimple size={20} weight="fill" />
-                </span>
-              </CoffeeItemBuy>
-            </CoffeeItemContent>
+            {dataCoffee.map((coffeeItem) => (
+              <CoffeeItemCard item={coffeeItem} />
+            ))}
           </CoffeeListContent>
         </MainContent>
       </HomeContainer>
