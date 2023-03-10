@@ -49,7 +49,7 @@ export const ItemsContainer = styled.div`
   flex-direction: row;
 `;
 
-const BACKGROUND_COLOR = {
+export const BACKGROUND_COLOR = {
   yellowDark: "yellow-700",
   yellow: "yellow-500",
   purple: "purple-500",
