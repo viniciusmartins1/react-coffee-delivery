@@ -1,18 +1,25 @@
-import { DefaultContainer } from "../Home/styles";
+import { MapPinLine, Money, CreditCard, Bank } from "phosphor-react";
+import {
+  CheckoutContainer,
+  SectionForm,
+  TitleSection,
+  DeliveryInfo,
+  FormContent,
+} from "./styles";
 
 export function Checkout() {
   return (
-    <DefaultContainer>
-      <section>
-        <h2>Complete seu pedido</h2>
-        <div>
-          <div>
-            <span>icon</span>
+    <CheckoutContainer>
+      <SectionForm>
+        <TitleSection>Complete seu pedido</TitleSection>
+        <FormContent>
+          <DeliveryInfo>
+            <MapPinLine size={22} weight="bold" />
             <div>
               <p>Endereço de Entrega</p>
               <p>Informe o endereço onde deseja receber seu pedido</p>
             </div>
-          </div>
+          </DeliveryInfo>
           <form action="">
             <input type="text" placeholder="CEP" />
             <input type="text" placeholder="Rua" />
@@ -22,10 +29,10 @@ export function Checkout() {
             <input type="text" placeholder="Cidade" />
             <input type="text" placeholder="UF" />
           </form>
-        </div>
+        </FormContent>
         <div>
           <div>
-            <span>icon</span>
+            <Bank size={25} weight="bold" />
             <div>
               <p>Pagamento</p>
               <p>
@@ -35,34 +42,34 @@ export function Checkout() {
           </div>
           <ul>
             <li>
-              <span>icon</span>
+              <Bank size={25} weight="bold" />
               <p>Cartão de crédito</p>
             </li>
             <li>
-              <span>icon</span>
+              <Bank size={25} weight="bold" />
               <p>Cartão de débito</p>
             </li>
             <li>
-              <span>icon</span>
+              <Bank size={25} weight="bold" />
               <p>Dinheiro</p>
             </li>
           </ul>
         </div>
-      </section>
+      </SectionForm>
       <section>
-        <h2>Cafés selecionados</h2>
+        <TitleSection>Cafés selecionados</TitleSection>
         <div>
           <img src="" alt="" />
           <div>
             <p>Expresso Tradicional</p>
             <div>
               <div>
-                <span>icon</span>
+                <Bank size={25} weight="bold" />
                 <p>1</p>
-                <span>icon</span>
+                <Bank size={25} weight="bold" />
               </div>
               <div>
-                <span>icon</span>
+                <Bank size={25} weight="bold" />
                 <p>Remover</p>
               </div>
             </div>
@@ -83,6 +90,6 @@ export function Checkout() {
         </div>
         <button>Confirmar Pedido</button>
       </section>
-    </DefaultContainer>
+    </CheckoutContainer>
   );
 }
