@@ -12,6 +12,8 @@ import {
   DeliveryInfo,
   FormContent,
   PaymentsMethods,
+  FormGridStyle,
+  InputForm,
 } from "./styles";
 
 export function Checkout() {
@@ -27,15 +29,19 @@ export function Checkout() {
               <p>Informe o endereço onde deseja receber seu pedido</p>
             </div>
           </DeliveryInfo>
-          <form action="">
-            <input type="text" placeholder="CEP" />
-            <input type="text" placeholder="Rua" />
-            <input type="number" placeholder="Numero" />
-            <input type="text" placeholder="Complemento" />
-            <input type="text" placeholder="Bairro" />
-            <input type="text" placeholder="Cidade" />
-            <input type="text" placeholder="UF" />
-          </form>
+          <FormGridStyle action="">
+            <InputForm widthInput={195} type="text" placeholder="CEP" />
+            <InputForm type="text" placeholder="Rua" />
+            <div>
+              <InputForm type="number" placeholder="Numero" />
+              <InputForm flex1 type="text" placeholder="Complemento" />
+            </div>
+            <div>
+              <InputForm type="text" placeholder="Bairro" />
+              <InputForm flex1 type="text" placeholder="Cidade" />
+              <InputForm widthInput={60} type="text" placeholder="UF" />
+            </div>
+          </FormGridStyle>
         </FormContent>
         <FormContent>
           <DeliveryInfo iconColor="purple">

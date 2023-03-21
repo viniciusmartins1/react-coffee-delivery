@@ -4,6 +4,7 @@ import { DefaultContainer } from "../Home/styles";
 export const CheckoutContainer = styled(DefaultContainer)`
   display: flex;
   gap: 32px;
+  margin-top: 40px;
 `;
 
 export const SectionForm = styled.section`
@@ -80,4 +81,44 @@ export const PaymentsMethods = styled.ul`
       color: ${({ theme }) => theme["purple-500"]};
     }
   }
+`;
+
+export const FormGridStyle = styled.form`
+  margin-top: 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+
+  input {
+    border-radius: 4px;
+    padding: 12px;
+    background-color: ${({ theme }) => theme["gray-300"]};
+    border: 1px solid;
+    border-color: ${({ theme }) => theme["gray-400"]};
+    font-size: 14px;
+    line-height: 18px;
+  }
+
+  div {
+    display: flex;
+    gap: 16px;
+    width: 100%;
+  }
+`;
+
+interface InputFormProps {
+  flex1?: boolean;
+  widthInput?: number;
+}
+
+export const InputForm = styled.input<InputFormProps>`
+  border-radius: 4px;
+  padding: 12px;
+  background-color: ${({ theme }) => theme["gray-300"]};
+  border: 1px solid;
+  border-color: ${({ theme }) => theme["gray-400"]};
+  font-size: 14px;
+  line-height: 18px;
+  flex: ${(props) => (props.flex1 ? 1 : 0)};
+  width: ${(props) => (props.widthInput ? props.widthInput + "px" : "auto")};
 `;
