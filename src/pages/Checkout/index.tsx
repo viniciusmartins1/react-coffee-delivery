@@ -1,10 +1,17 @@
-import { MapPinLine, Money, CreditCard, Bank } from "phosphor-react";
+import {
+  MapPinLine,
+  Money,
+  CreditCard,
+  Bank,
+  CurrencyDollar,
+} from "phosphor-react";
 import {
   CheckoutContainer,
   SectionForm,
   TitleSection,
   DeliveryInfo,
   FormContent,
+  PaymentsMethods,
 } from "./styles";
 
 export function Checkout() {
@@ -13,8 +20,8 @@ export function Checkout() {
       <SectionForm>
         <TitleSection>Complete seu pedido</TitleSection>
         <FormContent>
-          <DeliveryInfo>
-            <MapPinLine size={22} weight="bold" />
+          <DeliveryInfo iconColor="yellowDark">
+            <MapPinLine size={22} weight="regular" />
             <div>
               <p>Endereço de Entrega</p>
               <p>Informe o endereço onde deseja receber seu pedido</p>
@@ -30,31 +37,31 @@ export function Checkout() {
             <input type="text" placeholder="UF" />
           </form>
         </FormContent>
-        <div>
-          <div>
-            <Bank size={25} weight="bold" />
+        <FormContent>
+          <DeliveryInfo iconColor="purple">
+            <CurrencyDollar size={25} weight="regular" />
             <div>
               <p>Pagamento</p>
               <p>
                 O pagamento é feito na entrega. Escolha a forma que deseja pagar
               </p>
             </div>
-          </div>
-          <ul>
+          </DeliveryInfo>
+          <PaymentsMethods>
             <li>
-              <Bank size={25} weight="bold" />
+              <CreditCard size={25} weight="regular" />
               <p>Cartão de crédito</p>
             </li>
             <li>
-              <Bank size={25} weight="bold" />
+              <Bank size={25} weight="regular" />
               <p>Cartão de débito</p>
             </li>
             <li>
-              <Bank size={25} weight="bold" />
+              <Money size={25} weight="regular" />
               <p>Dinheiro</p>
             </li>
-          </ul>
-        </div>
+          </PaymentsMethods>
+        </FormContent>
       </SectionForm>
       <section>
         <TitleSection>Cafés selecionados</TitleSection>
