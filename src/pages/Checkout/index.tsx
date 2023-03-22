@@ -4,6 +4,9 @@ import {
   CreditCard,
   Bank,
   CurrencyDollar,
+  Plus,
+  Minus,
+  Trash,
 } from "phosphor-react";
 import {
   CheckoutContainer,
@@ -14,7 +17,11 @@ import {
   PaymentsMethods,
   FormGridStyle,
   InputForm,
+  SelectedCoffees,
+  CoffeesInfos,
 } from "./styles";
+
+import coffeeItemImage from "../../assets/coffeeItemCards/coffee01.png";
 
 export function Checkout() {
   return (
@@ -71,37 +78,39 @@ export function Checkout() {
       </SectionForm>
       <section>
         <TitleSection>Cafés selecionados</TitleSection>
-        <div>
-          <img src="" alt="" />
+        <SelectedCoffees>
           <div>
-            <p>Expresso Tradicional</p>
+            <img src={coffeeItemImage} alt="" />
+            <CoffeesInfos>
+              <p>Expresso Tradicional</p>
+              <div>
+                <div>
+                  <Minus size={14} weight="regular" />
+                  <p>1</p>
+                  <Plus size={14} weight="regular" />
+                </div>
+                <div>
+                  <Trash size={14} weight="regular" />
+                  <span>Remover</span>
+                </div>
+              </div>
+            </CoffeesInfos>
+            <p>R$ 9,90</p>
+          </div>
+          <div>
             <div>
-              <div>
-                <Bank size={25} weight="bold" />
-                <p>1</p>
-                <Bank size={25} weight="bold" />
-              </div>
-              <div>
-                <Bank size={25} weight="bold" />
-                <p>Remover</p>
-              </div>
+              <p>Total de itens</p>
+              <p>Entrega</p>
+              <p>Total</p>
+            </div>
+            <div>
+              <p>R$ 29,70</p>
+              <p>R$ 3,50</p>
+              <p>R$ 33,20</p>
             </div>
           </div>
-          <p>R$ 9,90</p>
-        </div>
-        <div>
-          <div>
-            <p>Total de itens</p>
-            <p>Entrega</p>
-            <p>Total</p>
-          </div>
-          <div>
-            <p>R$ 29,70</p>
-            <p>R$ 3,50</p>
-            <p>R$ 33,20</p>
-          </div>
-        </div>
-        <button>Confirmar Pedido</button>
+          <button>Confirmar Pedido</button>
+        </SelectedCoffees>
       </section>
     </CheckoutContainer>
   );

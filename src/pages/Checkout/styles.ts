@@ -122,3 +122,16 @@ export const InputForm = styled.input<InputFormProps>`
   flex: ${(props) => (props.flex1 ? 1 : 0)};
   width: ${(props) => (props.widthInput ? props.widthInput + "px" : "auto")};
 `;
+
+export const SelectedCoffees = styled.section`
+  margin-top: 12px;
+  padding: 40px;
+  border-radius: 8px;
+  background-color: ${({ theme }) => theme["gray-200"]};
+`;
+
+export const CoffeesInfos = styled.div`
+  svg {
+    color: ${({ theme }) => theme["purple-700"]};
+  }
+`;
