@@ -19,6 +19,11 @@ import {
   InputForm,
   SelectedCoffees,
   CoffeesInfos,
+  SelectedCoffeItem,
+  AddAndRemoveItems,
+  RemoveItems,
+  DetailsItems,
+  PriceItem,
 } from "./styles";
 
 import coffeeItemImage from "../../assets/coffeeItemCards/coffee01.png";
@@ -79,24 +84,24 @@ export function Checkout() {
       <section>
         <TitleSection>Cafés selecionados</TitleSection>
         <SelectedCoffees>
-          <div>
+          <SelectedCoffeItem>
             <img src={coffeeItemImage} alt="" />
             <CoffeesInfos>
               <p>Expresso Tradicional</p>
-              <div>
-                <div>
-                  <Minus size={14} weight="regular" />
-                  <p>1</p>
-                  <Plus size={14} weight="regular" />
-                </div>
-                <div>
+              <DetailsItems>
+                <AddAndRemoveItems>
+                  <Minus size={14} weight="bold" />
+                  <span>1</span>
+                  <Plus size={14} weight="bold" />
+                </AddAndRemoveItems>
+                <RemoveItems>
                   <Trash size={14} weight="regular" />
                   <span>Remover</span>
-                </div>
-              </div>
+                </RemoveItems>
+              </DetailsItems>
             </CoffeesInfos>
-            <p>R$ 9,90</p>
-          </div>
+            <PriceItem>R$ 9,90</PriceItem>
+          </SelectedCoffeItem>
           <div>
             <div>
               <p>Total de itens</p>

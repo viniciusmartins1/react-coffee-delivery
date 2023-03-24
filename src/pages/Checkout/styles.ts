@@ -130,8 +130,75 @@ export const SelectedCoffees = styled.section`
   background-color: ${({ theme }) => theme["gray-200"]};
 `;
 
+export const SelectedCoffeItem = styled.div`
+  display: flex;
+  align-items: flex-start;
+  gap: 20px;
+
+  img {
+    width: 64px;
+    align-self: center;
+  }
+`;
+
 export const CoffeesInfos = styled.div`
+  display: flex;
+  flex-direction: column;
+
   svg {
     color: ${({ theme }) => theme["purple-700"]};
   }
+
+  p {
+    font-size: 16px;
+    line-height: 20.8px;
+    color: ${({ theme }) => theme["gray-800"]};
+  }
+`;
+
+export const AddAndRemoveItems = styled.div`
+  background-color: ${({ theme }) => theme["gray-400"]};
+  border-radius: 6px;
+  font-size: 16px;
+  padding: 6px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+
+  span {
+    color: ${({ theme }) => theme["gray-900"]};
+    font-size: 16px;
+    line-height: 20.8px;
+  }
+`;
+
+export const DetailsItems = styled.div`
+  display: flex;
+  gap: 8px;
+`;
+
+export const RemoveItems = styled.div`
+  background-color: ${({ theme }) => theme["gray-400"]};
+  border-radius: 6px;
+  font-size: 16px;
+  padding: 6px;
+  display: flex;
+  gap: 4px;
+  align-items: center;
+
+  span {
+    font-size: 12px;
+    line-height: 19.2px;
+    text-transform: uppercase;
+  }
+`;
+
+export const PriceItem = styled.p`
+  font-size: 16px;
+  line-height: 20.8px;
+  text-align: right;
+  font-weight: 700;
+  color: ${({ theme }) => theme["gray-700"]};
 `;
