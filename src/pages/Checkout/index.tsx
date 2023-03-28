@@ -24,6 +24,11 @@ import {
   RemoveItems,
   DetailsItems,
   PriceItem,
+  PricesContent,
+  TotalPrice,
+  TotalPriceItems,
+  Divider,
+  ButtonConfirm,
 } from "./styles";
 
 import coffeeItemImage from "../../assets/coffeeItemCards/coffee01.png";
@@ -90,31 +95,53 @@ export function Checkout() {
               <p>Expresso Tradicional</p>
               <DetailsItems>
                 <AddAndRemoveItems>
-                  <Minus size={14} weight="bold" />
+                  <Minus size={16} weight="bold" />
                   <span>1</span>
-                  <Plus size={14} weight="bold" />
+                  <Plus size={16} weight="bold" />
                 </AddAndRemoveItems>
                 <RemoveItems>
-                  <Trash size={14} weight="regular" />
+                  <Trash size={16} weight="regular" />
                   <span>Remover</span>
                 </RemoveItems>
               </DetailsItems>
             </CoffeesInfos>
             <PriceItem>R$ 9,90</PriceItem>
           </SelectedCoffeItem>
-          <div>
-            <div>
+          <Divider />
+          <SelectedCoffeItem>
+            <img src={coffeeItemImage} alt="" />
+            <CoffeesInfos>
+              <p>Expresso Tradicional</p>
+              <DetailsItems>
+                <AddAndRemoveItems>
+                  <Minus size={16} weight="bold" />
+                  <span>1</span>
+                  <Plus size={16} weight="bold" />
+                </AddAndRemoveItems>
+                <RemoveItems>
+                  <Trash size={16} weight="regular" />
+                  <span>Remover</span>
+                </RemoveItems>
+              </DetailsItems>
+            </CoffeesInfos>
+            <PriceItem>R$ 9,90</PriceItem>
+          </SelectedCoffeItem>
+          <Divider />
+          <PricesContent>
+            <TotalPriceItems>
               <p>Total de itens</p>
+              <span>R$ 29,70</span>
+            </TotalPriceItems>
+            <TotalPriceItems>
               <p>Entrega</p>
+              <span>R$ 3,50</span>
+            </TotalPriceItems>
+            <TotalPrice>
               <p>Total</p>
-            </div>
-            <div>
-              <p>R$ 29,70</p>
-              <p>R$ 3,50</p>
-              <p>R$ 33,20</p>
-            </div>
-          </div>
-          <button>Confirmar Pedido</button>
+              <span>R$ 33,20</span>
+            </TotalPrice>
+          </PricesContent>
+          <ButtonConfirm>Confirmar Pedido</ButtonConfirm>
         </SelectedCoffees>
       </section>
     </CheckoutContainer>

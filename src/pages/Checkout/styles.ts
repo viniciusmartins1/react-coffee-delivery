@@ -11,6 +11,7 @@ export const SectionForm = styled.section`
   display: flex;
   flex-direction: column;
   gap: 12px;
+  margin-bottom: 100px;
 `;
 
 export const FormContent = styled.div`
@@ -163,7 +164,7 @@ export const AddAndRemoveItems = styled.div`
   padding: 6px;
 
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   justify-content: center;
   gap: 10px;
 
@@ -186,7 +187,7 @@ export const RemoveItems = styled.div`
   padding: 6px;
   display: flex;
   gap: 4px;
-  align-items: center;
+  align-items: flex-start;
 
   span {
     font-size: 12px;
@@ -195,10 +196,63 @@ export const RemoveItems = styled.div`
   }
 `;
 
+export const Divider = styled.div`
+  margin: 24px 0;
+  height: 1px;
+  width: 100%;
+  border-top: 1px solid ${({ theme }) => theme["gray-400"]};
+`;
+
 export const PriceItem = styled.p`
   font-size: 16px;
   line-height: 20.8px;
   text-align: right;
   font-weight: 700;
   color: ${({ theme }) => theme["gray-700"]};
+`;
+
+export const PricesContent = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  color: ${({ theme }) => theme["gray-700"]};
+
+  div {
+    display: flex;
+    justify-content: space-between;
+  }
+`;
+
+export const TotalPriceItems = styled.div`
+  p {
+    font-size: 14px;
+    line-height: 18.2px;
+  }
+
+  span {
+    font-size: 16px;
+    line-height: 20.8px;
+  }
+`;
+
+export const TotalPrice = styled.div`
+  font-size: 20px;
+  line-height: 26px;
+  font-weight: 700;
+  color: ${({ theme }) => theme["gray-800"]};
+`;
+
+export const ButtonConfirm = styled.button`
+  width: 100%;
+  margin-top: 24px;
+  padding: 12px 8px;
+  border: none;
+  border-radius: 6px;
+  background-color: ${({ theme }) => theme["yellow-500"]};
+
+  font-size: 14px;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: ${({ theme }) => theme.white};
+  line-height: 22.4px;
 `;
