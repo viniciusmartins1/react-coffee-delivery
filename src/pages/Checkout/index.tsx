@@ -29,6 +29,7 @@ import {
   TotalPriceItems,
   Divider,
   ButtonConfirm,
+  PaymentsMethodsItem,
 } from "./styles";
 
 import coffeeItemImage from "../../assets/coffeeItemCards/coffee01.png";
@@ -71,18 +72,24 @@ export function Checkout() {
             </div>
           </DeliveryInfo>
           <PaymentsMethods>
-            <li>
-              <CreditCard size={25} weight="regular" />
-              <p>Cartão de crédito</p>
-            </li>
-            <li>
-              <Bank size={25} weight="regular" />
-              <p>Cartão de débito</p>
-            </li>
-            <li>
-              <Money size={25} weight="regular" />
-              <p>Dinheiro</p>
-            </li>
+            <PaymentsMethodsItem>
+              <button type="button">
+                <CreditCard size={25} weight="regular" />
+                <p>Cartão de crédito</p>
+              </button>
+            </PaymentsMethodsItem>
+            <PaymentsMethodsItem>
+              <button type="button">
+                <Bank size={25} weight="regular" />
+                <p>Cartão de débito</p>
+              </button>
+            </PaymentsMethodsItem>
+            <PaymentsMethodsItem>
+              <button type="button">
+                <Money size={25} weight="regular" />
+                <p>Dinheiro</p>
+              </button>
+            </PaymentsMethodsItem>
           </PaymentsMethods>
         </FormContent>
       </SectionForm>
