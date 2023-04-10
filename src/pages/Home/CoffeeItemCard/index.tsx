@@ -10,9 +10,15 @@ import {
 
 type CoffeeItemCardProps = {
   item: ItemCoffee;
+  addItem: (id: string) => void;
+  removeItem: (id: string) => void;
 };
 
-export function CoffeeItemCard({ item }: CoffeeItemCardProps) {
+export function CoffeeItemCard({
+  item,
+  addItem,
+  removeItem,
+}: CoffeeItemCardProps) {
   return (
     <CoffeeItemContent>
       <img src={item.image} alt="" />
@@ -29,9 +35,9 @@ export function CoffeeItemCard({ item }: CoffeeItemCardProps) {
         </p>
 
         <div>
-          <Minus size={14} weight="bold" />
-          <span>1</span>
-          <Plus size={14} weight="bold" />
+          <Minus onClick={() => removeItem(item.id)} size={14} weight="bold" />
+          <span>{item.quantity}</span>
+          <Plus onClick={() => addItem(item.id)} size={14} weight="bold" />
         </div>
         <span>
           <ShoppingCartSimple size={20} weight="fill" />

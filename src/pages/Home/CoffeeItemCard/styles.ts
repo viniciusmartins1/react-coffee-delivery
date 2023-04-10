@@ -12,6 +12,7 @@ export const CoffeeItemContent = styled.div`
   img {
     margin-top: -30px;
     margin-bottom: 10px;
+    user-select: none;
   }
 `;
 
@@ -90,10 +91,12 @@ export const CoffeeItemBuy = styled.div`
     display: flex;
     align-items: center;
     gap: 8px;
+    user-select: none;
   }
 
   div svg {
     color: ${({ theme }) => theme["purple-500"]};
+    cursor: pointer;
   }
 
   span > svg {

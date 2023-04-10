@@ -1,6 +1,6 @@
 import { ShoppingCart, Timer, Package, Coffee } from "phosphor-react";
 import imgCoffee from "../../assets/img-coffee-home.png";
-import { dataCoffee } from "../../dataCoffee";
+import { ItemCoffee, dataCoffee } from "../../dataCoffee";
 
 import {
   DefaultContainer,
@@ -14,8 +14,31 @@ import {
   TitleList,
 } from "./styles";
 import { CoffeeItemCard } from "./CoffeeItemCard";
+import { useState } from "react";
 
 export function Home() {
+  const [coffeeList, setCoffeeList] = useState<ItemCoffee[]>(dataCoffee);
+
+  function handleClickAddItem(id: string) {
+    const newArray = coffeeList.map((item) => {
+      if (item.id === id) {
+        item.quantity++;
+      }
+      return item;
+    });
+    setCoffeeList([...newArray]);
+  }
+
+  function handleClickRemoveItem(id: string) {
+    const newArray = coffeeList.map((item) => {
+      if (item.id === id && item.quantity > 0) {
+        item.quantity--;
+      }
+      return item;
+    });
+    setCoffeeList([...newArray]);
+  }
+
   return (
     <>
       <HomeBody>
@@ -58,8 +81,12 @@ export function Home() {
         <TitleList>Nossos cafés</TitleList>
 
         <CoffeeListContent>
-          {dataCoffee.map((coffeeItem) => (
-            <CoffeeItemCard item={coffeeItem} />
+          {coffeeList.map((coffeeItem) => (
+            <CoffeeItemCard
+              addItem={handleClickAddItem}
+              removeItem={handleClickRemoveItem}
+              item={coffeeItem}
+            />
           ))}
         </CoffeeListContent>
       </DefaultContainer>
