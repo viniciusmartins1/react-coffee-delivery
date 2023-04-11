@@ -85,9 +85,12 @@ export const PaymentsMethodsItem = styled.li<PaymentsMethodsItem>`
     border-radius: 6px;
     width: 188.67px;
     border: 1px solid transparent;
+    cursor: pointer;
 
     background-color: ${({ theme, activeItem }) =>
       !activeItem ? theme["gray-400"] : theme["purple-100"]};
+    border-color: ${({ theme, activeItem }) =>
+      activeItem ? theme["purple-500"] : theme["gray-400"]};
 
     svg {
       color: ${({ theme }) => theme["purple-500"]};
@@ -95,7 +98,7 @@ export const PaymentsMethodsItem = styled.li<PaymentsMethodsItem>`
   }
 
   button:focus {
-    border: 1px solid transparent;
+    box-shadow: none;
   }
 `;
 
@@ -146,87 +149,6 @@ export const SelectedCoffees = styled.section`
   background-color: ${({ theme }) => theme["gray-200"]};
 `;
 
-export const SelectedCoffeItem = styled.div`
-  display: flex;
-  align-items: flex-start;
-  gap: 20px;
-
-  img {
-    width: 64px;
-    align-self: center;
-  }
-`;
-
-export const CoffeesInfos = styled.div`
-  display: flex;
-  flex-direction: column;
-  gap: 4px;
-
-  svg {
-    color: ${({ theme }) => theme["purple-700"]};
-  }
-
-  p {
-    font-size: 16px;
-    line-height: 20.8px;
-    color: ${({ theme }) => theme["gray-800"]};
-  }
-`;
-
-export const AddAndRemoveItems = styled.div`
-  background-color: ${({ theme }) => theme["gray-400"]};
-  border-radius: 6px;
-  font-size: 16px;
-  padding: 6px;
-
-  display: flex;
-  align-items: flex-start;
-  justify-content: center;
-  gap: 10px;
-
-  span {
-    color: ${({ theme }) => theme["gray-900"]};
-    font-size: 16px;
-    line-height: 20.8px;
-  }
-`;
-
-export const DetailsItems = styled.div`
-  display: flex;
-  gap: 8px;
-`;
-
-export const RemoveItems = styled.div`
-  background-color: ${({ theme }) => theme["gray-400"]};
-  border-radius: 6px;
-  font-size: 16px;
-  padding: 6px;
-  display: flex;
-  gap: 4px;
-  align-items: flex-start;
-
-  span {
-    font-size: 12px;
-    line-height: 19.2px;
-    text-transform: uppercase;
-  }
-`;
-
-export const Divider = styled.div`
-  margin: 24px 0;
-  height: 1px;
-  width: 100%;
-  border-top: 1px solid ${({ theme }) => theme["gray-400"]};
-`;
-
-export const PriceItem = styled.p`
-  font-size: 16px;
-  line-height: 20.8px;
-  text-align: right;
-  font-weight: 700;
-  color: ${({ theme }) => theme["gray-700"]};
-`;
-
 export const PricesContent = styled.div`
   display: flex;
   flex-direction: column;
@@ -275,5 +197,9 @@ export const ButtonConfirm = styled.button`
 
   &:hover {
     background-color: ${({ theme }) => theme["yellow-700"]};
+  }
+
+  &:focus {
+    box-shadow: none;
   }
 `;

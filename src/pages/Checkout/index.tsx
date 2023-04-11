@@ -4,9 +4,6 @@ import {
   CreditCard,
   Bank,
   CurrencyDollar,
-  Plus,
-  Minus,
-  Trash,
 } from "phosphor-react";
 import {
   CheckoutContainer,
@@ -18,23 +15,45 @@ import {
   FormGridStyle,
   InputForm,
   SelectedCoffees,
-  CoffeesInfos,
-  SelectedCoffeItem,
-  AddAndRemoveItems,
-  RemoveItems,
-  DetailsItems,
-  PriceItem,
   PricesContent,
   TotalPrice,
   TotalPriceItems,
-  Divider,
   ButtonConfirm,
   PaymentsMethodsItem,
 } from "./styles";
+import { useContext, useEffect, useState } from "react";
+import { CoffeeContext } from "../../contexts/CoffeeInfoContext";
+import { SelectedCoffeeItem } from "./SelectedCoffeeItem";
+import { useAsyncError, useNavigate } from "react-router-dom";
 
-import coffeeItemImage from "../../assets/coffeeItemCards/coffee01.png";
+type MethodPayments = "creditCard" | "debtCard" | "cash";
+
+const DELIVERY_PRICE = 3.5;
+
+function formatPrice(value: number): string {
+  return value.toFixed(2).replace(".", ",");
+}
 
 export function Checkout() {
+  const [totalItemsPrice, setTotalItemsPrice] = useState(0);
+  const [paymentMethodActive, setPaymentMethodActive] =
+    useState<MethodPayments>("debtCard");
+
+  const { selectedCoffees } = useContext(CoffeeContext);
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    if (selectedCoffees.length > 0) {
+      const totalPrice = selectedCoffees.reduce<number>(
+        (sum: number, itemCoffee) =>
+          sum + itemCoffee.valueRental * itemCoffee.quantity,
+        0
+      );
+
+      setTotalItemsPrice(totalPrice);
+    }
+  }, [selectedCoffees]);
+
   return (
     <CheckoutContainer>
       <SectionForm>
@@ -51,7 +70,7 @@ export function Checkout() {
             <InputForm widthInput={195} type="text" placeholder="CEP" />
             <InputForm type="text" placeholder="Rua" />
             <div>
-              <InputForm type="number" placeholder="Numero" />
+              <InputForm type="text" placeholder="Numero" />
               <InputForm flex1 type="text" placeholder="Complemento" />
             </div>
             <div>
@@ -72,20 +91,33 @@ export function Checkout() {
             </div>
           </DeliveryInfo>
           <PaymentsMethods>
-            <PaymentsMethodsItem>
-              <button type="button">
+            <PaymentsMethodsItem
+              activeItem={paymentMethodActive === "creditCard"}
+            >
+              <button
+                type="button"
+                onClick={() => setPaymentMethodActive("creditCard")}
+              >
                 <CreditCard size={25} weight="regular" />
                 <p>Cartão de crédito</p>
               </button>
             </PaymentsMethodsItem>
-            <PaymentsMethodsItem>
-              <button type="button">
+            <PaymentsMethodsItem
+              activeItem={paymentMethodActive === "debtCard"}
+            >
+              <button
+                type="button"
+                onClick={() => setPaymentMethodActive("debtCard")}
+              >
                 <Bank size={25} weight="regular" />
                 <p>Cartão de débito</p>
               </button>
             </PaymentsMethodsItem>
-            <PaymentsMethodsItem>
-              <button type="button">
+            <PaymentsMethodsItem activeItem={paymentMethodActive === "cash"}>
+              <button
+                type="button"
+                onClick={() => setPaymentMethodActive("cash")}
+              >
                 <Money size={25} weight="regular" />
                 <p>Dinheiro</p>
               </button>
@@ -93,64 +125,33 @@ export function Checkout() {
           </PaymentsMethods>
         </FormContent>
       </SectionForm>
-      <section>
-        <TitleSection>Cafés selecionados</TitleSection>
-        <SelectedCoffees>
-          <SelectedCoffeItem>
-            <img src={coffeeItemImage} alt="" />
-            <CoffeesInfos>
-              <p>Expresso Tradicional</p>
-              <DetailsItems>
-                <AddAndRemoveItems>
-                  <Minus size={16} weight="bold" />
-                  <span>1</span>
-                  <Plus size={16} weight="bold" />
-                </AddAndRemoveItems>
-                <RemoveItems>
-                  <Trash size={16} weight="regular" />
-                  <span>Remover</span>
-                </RemoveItems>
-              </DetailsItems>
-            </CoffeesInfos>
-            <PriceItem>R$ 9,90</PriceItem>
-          </SelectedCoffeItem>
-          <Divider />
-          <SelectedCoffeItem>
-            <img src={coffeeItemImage} alt="" />
-            <CoffeesInfos>
-              <p>Expresso Tradicional</p>
-              <DetailsItems>
-                <AddAndRemoveItems>
-                  <Minus size={16} weight="bold" />
-                  <span>1</span>
-                  <Plus size={16} weight="bold" />
-                </AddAndRemoveItems>
-                <RemoveItems>
-                  <Trash size={16} weight="regular" />
-                  <span>Remover</span>
-                </RemoveItems>
-              </DetailsItems>
-            </CoffeesInfos>
-            <PriceItem>R$ 9,90</PriceItem>
-          </SelectedCoffeItem>
-          <Divider />
-          <PricesContent>
-            <TotalPriceItems>
-              <p>Total de itens</p>
-              <span>R$ 29,70</span>
-            </TotalPriceItems>
-            <TotalPriceItems>
-              <p>Entrega</p>
-              <span>R$ 3,50</span>
-            </TotalPriceItems>
-            <TotalPrice>
-              <p>Total</p>
-              <span>R$ 33,20</span>
-            </TotalPrice>
-          </PricesContent>
-          <ButtonConfirm>Confirmar Pedido</ButtonConfirm>
-        </SelectedCoffees>
-      </section>
+      {selectedCoffees.length > 0 && (
+        <section>
+          <TitleSection>Cafés selecionados</TitleSection>
+          <SelectedCoffees>
+            {selectedCoffees.map((item) => (
+              <SelectedCoffeeItem key={item.id} item={item} />
+            ))}
+            <PricesContent>
+              <TotalPriceItems>
+                <p>Total de itens</p>
+                <span>R$ {formatPrice(totalItemsPrice)}</span>
+              </TotalPriceItems>
+              <TotalPriceItems>
+                <p>Entrega</p>
+                <span>R$ {formatPrice(DELIVERY_PRICE)}</span>
+              </TotalPriceItems>
+              <TotalPrice>
+                <p>Total</p>
+                <span>R$ {formatPrice(totalItemsPrice + DELIVERY_PRICE)}</span>
+              </TotalPrice>
+            </PricesContent>
+            <ButtonConfirm disabled onClick={() => navigate("/success")}>
+              Confirmar Pedido
+            </ButtonConfirm>
+          </SelectedCoffees>
+        </section>
+      )}
     </CheckoutContainer>
   );
 }
