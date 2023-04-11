@@ -11,12 +11,14 @@ import { Link } from "react-router-dom";
 
 type CoffeeItemCardProps = {
   item: ItemCoffee;
+  quantityToShopping: number;
   addItem: (id: string) => void;
   removeItem: (id: string) => void;
 };
 
 export function CoffeeItemCard({
   item,
+  quantityToShopping,
   addItem,
   removeItem,
 }: CoffeeItemCardProps) {
@@ -44,6 +46,7 @@ export function CoffeeItemCard({
           <Link to="/checkout">
             <ShoppingCartSimple size={20} weight="fill" />
           </Link>
+          {item.quantity != 0 && <span>{quantityToShopping}</span>}
         </span>
       </CoffeeItemBuy>
     </CoffeeItemContent>

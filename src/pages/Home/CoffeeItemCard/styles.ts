@@ -99,10 +99,14 @@ export const CoffeeItemBuy = styled.div`
     cursor: pointer;
   }
 
+  span {
+    position: relative;
+  }
+
   span > a {
     display: block;
     color: ${({ theme }) => theme["white"]};
-    background-color: ${({ theme }) => theme["purple-700"]};
+    background-color: ${({ theme }) => theme["purple-500"]};
     padding: 6px 8px;
     border-radius: 6px;
     box-sizing: content-box;
@@ -113,7 +117,20 @@ export const CoffeeItemBuy = styled.div`
     }
 
     &:hover {
-      background-color: ${({ theme }) => theme["purple-500"]};
+      background-color: ${({ theme }) => theme["purple-700"]};
     }
+  }
+
+  span span {
+    color: ${({ theme }) => theme["gray-100"]};
+    background-color: ${({ theme }) => theme["yellow-700"]};
+    border-radius: 50%;
+    padding: 2px 7px;
+    font-weight: bold;
+
+    position: absolute;
+    top: -14px;
+    right: -12px;
+    user-select: none;
   }
 `;
