@@ -7,6 +7,10 @@ export const HeaderContainer = styled.header`
   align-items: center;
   text-align: center;
   padding: 33px 0;
+
+  a:focus {
+    box-shadow: none;
+  }
 `;
 
 export const ActionsConteiner = styled.div`
@@ -31,13 +35,23 @@ export const LocationContainer = styled.div`
 `;
 
 export const ShoppingCartContainer = styled.div`
-  align-self: center;
-  padding: 8px 8px;
-  border-radius: 6px;
   position: relative;
+  a {
+    display: block;
+    align-self: center;
+    padding: 8px 8px;
+    border-radius: 6px;
+    position: relative;
 
-  color: ${({ theme }) => theme["yellow-700"]};
-  background-color: ${({ theme }) => theme["yellow-100"]};
+    color: ${({ theme }) => theme["yellow-700"]};
+    background-color: ${({ theme }) => theme["yellow-100"]};
+    transition: 0.4s all ease;
+
+    &:hover {
+      color: ${({ theme }) => theme["white"]};
+      background-color: ${({ theme }) => theme["yellow-500"]};
+    }
+  }
 
   span {
     color: ${({ theme }) => theme["gray-100"]};
@@ -49,5 +63,6 @@ export const ShoppingCartContainer = styled.div`
     position: absolute;
     top: -14px;
     right: -12px;
+    user-select: none;
   }
 `;
