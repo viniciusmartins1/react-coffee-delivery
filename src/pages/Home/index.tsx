@@ -14,30 +14,12 @@ import {
   TitleList,
 } from "./styles";
 import { CoffeeItemCard } from "./CoffeeItemCard";
-import { useState } from "react";
+import { useContext } from "react";
+import { CoffeeContext } from "../../contexts/CoffeeInfoContext";
 
 export function Home() {
-  const [coffeeList, setCoffeeList] = useState<ItemCoffee[]>(dataCoffee);
-
-  function handleClickAddItem(id: string) {
-    const newArray = coffeeList.map((item) => {
-      if (item.id === id) {
-        item.quantity++;
-      }
-      return item;
-    });
-    setCoffeeList([...newArray]);
-  }
-
-  function handleClickRemoveItem(id: string) {
-    const newArray = coffeeList.map((item) => {
-      if (item.id === id && item.quantity > 0) {
-        item.quantity--;
-      }
-      return item;
-    });
-    setCoffeeList([...newArray]);
-  }
+  const { coffeeList, quantityShopping, addCoffeeItem, removeCoffeeItem } =
+    useContext(CoffeeContext);
 
   return (
     <>
@@ -83,9 +65,10 @@ export function Home() {
         <CoffeeListContent>
           {coffeeList.map((coffeeItem) => (
             <CoffeeItemCard
-              addItem={handleClickAddItem}
-              removeItem={handleClickRemoveItem}
               item={coffeeItem}
+              quantityToShopping={quantityShopping}
+              addItem={addCoffeeItem}
+              removeItem={removeCoffeeItem}
             />
           ))}
         </CoffeeListContent>
