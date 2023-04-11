@@ -99,12 +99,21 @@ export const CoffeeItemBuy = styled.div`
     cursor: pointer;
   }
 
-  span > svg {
+  span > a {
     display: block;
     color: ${({ theme }) => theme["white"]};
     background-color: ${({ theme }) => theme["purple-700"]};
-    padding: 8px;
+    padding: 6px 8px;
     border-radius: 6px;
     box-sizing: content-box;
+    transition: 0.3s all ease;
+
+    &:focus {
+      box-shadow: none;
+    }
+
+    &:hover {
+      background-color: ${({ theme }) => theme["purple-500"]};
+    }
   }
 `;

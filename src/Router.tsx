@@ -4,6 +4,7 @@ import { DefaultLayout } from "./layouts/DefaultLayout";
 import { Checkout } from "./pages/Checkout";
 import { Home } from "./pages/Home";
 import { Success } from "./pages/Success";
+import { ScrollToTop } from "./components/ScrollToTop";
 
 export function Router() {
   return (

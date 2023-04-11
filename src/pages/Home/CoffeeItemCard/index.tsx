@@ -7,6 +7,7 @@ import {
   CoffeeItemDescription,
   CoffeeItemBuy,
 } from "./styles";
+import { Link } from "react-router-dom";
 
 type CoffeeItemCardProps = {
   item: ItemCoffee;
@@ -40,7 +41,9 @@ export function CoffeeItemCard({
           <Plus onClick={() => addItem(item.id)} size={14} weight="bold" />
         </div>
         <span>
-          <ShoppingCartSimple size={20} weight="fill" />
+          <Link to="/checkout">
+            <ShoppingCartSimple size={20} weight="fill" />
+          </Link>
         </span>
       </CoffeeItemBuy>
     </CoffeeItemContent>
