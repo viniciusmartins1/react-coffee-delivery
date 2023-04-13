@@ -2,8 +2,6 @@ import styled from "styled-components";
 import { DefaultContainer } from "../Home/styles";
 
 export const CheckoutContainer = styled(DefaultContainer)`
-  display: flex;
-  gap: 32px;
   margin-top: 40px;
 `;
 
@@ -102,46 +100,6 @@ export const PaymentsMethodsItem = styled.li<PaymentsMethodsItem>`
   }
 `;
 
-export const FormGridStyle = styled.form`
-  margin-top: 32px;
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
-
-  input {
-    border-radius: 4px;
-    padding: 12px;
-    background-color: ${({ theme }) => theme["gray-300"]};
-    border: 1px solid;
-    border-color: ${({ theme }) => theme["gray-400"]};
-    font-size: 14px;
-    line-height: 18px;
-  }
-
-  div {
-    display: flex;
-    gap: 16px;
-    width: 100%;
-  }
-`;
-
-interface InputFormProps {
-  flex1?: boolean;
-  widthInput?: number;
-}
-
-export const InputForm = styled.input<InputFormProps>`
-  border-radius: 4px;
-  padding: 12px;
-  background-color: ${({ theme }) => theme["gray-300"]};
-  border: 1px solid;
-  border-color: ${({ theme }) => theme["gray-400"]};
-  font-size: 14px;
-  line-height: 18px;
-  flex: ${(props) => (props.flex1 ? 1 : 0)};
-  width: ${(props) => (props.widthInput ? props.widthInput + "px" : "auto")};
-`;
-
 export const SelectedCoffees = styled.section`
   margin-top: 12px;
   padding: 40px;
@@ -195,11 +153,17 @@ export const ButtonConfirm = styled.button`
   color: ${({ theme }) => theme.white};
   line-height: 22.4px;
 
-  &:hover {
+  &:not(:disabled):hover {
     background-color: ${({ theme }) => theme["yellow-700"]};
   }
 
   &:focus {
     box-shadow: none;
   }
+`;
+
+export const EmptyCarImage = styled.img`
+  align-self: flex-start;
+  margin-top: 30px;
+  width: 35%;
 `;
