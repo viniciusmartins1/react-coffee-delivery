@@ -33,6 +33,8 @@ export function Success() {
   useEffect(() => {
     if (Object.keys(checkoutInfos).length === 0) {
       setShowDeliveryInfos(false);
+    } else {
+      setShowDeliveryInfos(true);
     }
   }, [checkoutInfos]);
 
