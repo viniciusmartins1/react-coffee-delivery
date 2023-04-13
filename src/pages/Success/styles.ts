@@ -2,7 +2,7 @@ import styled from "styled-components";
 import { DefaultContainer } from "../Home/styles";
 import { BACKGROUND_COLOR } from "../Home/styles";
 
-export const SuccessTitle = styled.h1`
+export const SuccessTitle = styled.div`
   margin: 72px 0 0 0;
   h1 {
     font-size: 32px;
@@ -41,10 +41,6 @@ export const SuccessMainContent = styled.article`
   border: 1px solid transparent;
   border-radius: 6px 36px;
 
-  /* border: 1px solid black;
-  border: 1px solid;
-  border-image: linear-gradient(45deg, #dbac2c, #8047f8) 2;
-  border-radius: 6px 36px; */
 `;
 interface OrderInfoProps {
   backgroundColorIcon: keyof typeof BACKGROUND_COLOR;
@@ -68,3 +64,8 @@ export const OrderInfo = styled.div<OrderInfoProps>`
     font-weight: 700;
   }
 `;
+
+export const EmptyContainer = styled.div`
+  display: flex;
+  
+`
