@@ -65,6 +65,7 @@ export function Home() {
         <CoffeeListContent>
           {coffeeList.map((coffeeItem) => (
             <CoffeeItemCard
+              key={coffeeItem.id + coffeeItem.title}
               item={coffeeItem}
               quantityToShopping={quantityShopping}
               addItem={addCoffeeItem}
